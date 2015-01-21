@@ -11,13 +11,14 @@
 
 @protocol ParserDelegate <NSObject>
 
-//@optional
-//- (void)fetchAndUnpackJSONDataWithURLString:(NSString *)url;
-- (void)fetchDictionaryFromURLString:(NSString *)url;
+- (void)requestDidFinishWithArray:(NSMutableArray *)array;
 
 @end
 
 @interface Parser : NSObject
+
+- (void)requestDictionaryWithURLString:(NSString *)urlString;
+- (void)unpackDictionariesFromArray:(NSMutableArray *)array;
 
 @property (weak, nonatomic) id<ParserDelegate> delegate;
 

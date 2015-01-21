@@ -14,11 +14,10 @@
 @interface RootViewController () <MKMapViewDelegate, ParserDelegate>
 
 @property NSMutableArray *busStopsArray;
-
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property NSMutableArray *busStopAnnotationArray;           // Array to hold multiple MKPointAnnotations
 @property CLLocationManager *locationManager;
-
+@property Parser *parser;
 
 @end
 
@@ -31,10 +30,17 @@
 {
     [super viewDidLoad];
     self.busStopsArray = [NSMutableArray new];
-
-    [self fetchAndUnpackJSONData];          // Fetch and reformat data into BusStop objects (See unpack method)
+    self.parser = [Parser new];
+    self.parser.delegate = self;
+    [self.parser requestDictionaryWithURLString:@"https://s3.amazonaws.com/mobile-makers-lib/bus.json"];
     [self requestUserPermissionToTrack];    // Request users permission to track location
+}
 
+
+- (void)requestDidFinishWithArray:(NSMutableArray *)array
+{
+    // Send array of bus stops to get "unpacked" (see helper method)
+    self.busStopsArray = array;
     for (BusStop *stop in self.busStopsArray)
     {
         MKPointAnnotation *annotation = [MKPointAnnotation new];
@@ -42,39 +48,6 @@
         annotation.coordinate = stop.coordinate;
         // Add annotation to map
         [self.mapView addAnnotation:annotation];
-    }
-
-}
-
-- (void)fetchAndUnpackJSONData
-{
-    // Setting the original JSON link to a url object
-    NSURL *originalJsonURL = [NSURL URLWithString:@"https://s3.amazonaws.com/mobile-makers-lib/bus.json"];
-    // Turn URL into URLRequest
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:originalJsonURL];
-    // JSON Request block call
-    [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-     {
-         // Fetching the JSON dictionary of bus stops from original JSON link
-         NSDictionary *tempDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-
-         
-         // Get "Master" array of data from dictionary
-         NSArray *busStopsArrayFromRequest = [tempDictionary objectForKey:@"row"];
-         // Send array of bus stops to get "unpacked" (see helper method)
-         [self unpackDictionary:busStopsArrayFromRequest];
-
-     }];
-}
-
-- (void)unpackDictionary:(NSArray *)array
-{
-    // Take each dictionary (bus stop) in array of Bus Stops and "unpack" into BusStop objects (set all BusStop properties in BusStop model class)
-    for (NSDictionary *dict in array)
-    {
-        BusStop *stopWithFullDetails = [[BusStop alloc] initWithDictionary:dict];
-        // Add BusStop object to busStopArray
-        [self.busStopsArray addObject:stopWithFullDetails];
     }
 }
 

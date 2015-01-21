@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 ChrisGiersch. All rights reserved.
 //
 
-#import "BusStop.h"
+#import "BusStopAnnotation.h"
 
-@implementation BusStop
+@implementation BusStopAnnotation
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -22,13 +22,11 @@
         self.ctaStopName = dictionary[@"cta_stop_name"];
         self.direction = dictionary[@"direction"];
         self.routes = dictionary[@"routes"];
+        self.inter_modal = dictionary[@"inter_modal"];
         self.ward = dictionary[@"ward"];
         self.longitude = dictionary[@"longitude"];
         self.latitude = dictionary[@"latitude"];
-
-
-
-        self.coordinate = CLLocationCoordinate2DMake(self.longitude.doubleValue, self.latitude.doubleValue);
+        self.coordinate = CLLocationCoordinate2DMake([dictionary[@"latitude"] floatValue], [dictionary[@"longitude"] floatValue]);
     }
     return self;
 }

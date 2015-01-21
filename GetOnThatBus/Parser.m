@@ -7,7 +7,7 @@
 //
 
 #import "Parser.h"
-#import "BusStop.h"
+#import "BusStopAnnotation.h"
 
 @implementation Parser
 
@@ -24,22 +24,22 @@
          NSDictionary *tempDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
          // Get "Master" array of data from dictionary
          NSMutableArray *busStopsArrayFromRequest = [tempDictionary objectForKey:@"row"];
+         [self unpackDictionariesFromArray:busStopsArrayFromRequest];
      }];
 }
 
 - (void)unpackDictionariesFromArray:(NSMutableArray *)array
 {
-    NSMutableArray *tempBusStopArray = [NSMutableArray new];
+    NSMutableArray *reformattedBusStopsArray = [NSMutableArray new];
     // Take each dictionary (bus stop) in array of Bus Stops and "unpack" into BusStop objects (set all BusStop properties in BusStop model class)
     for (NSDictionary *dict in array)
     {
-        BusStop *stopWithFullDetails = [[BusStop alloc] initWithDictionary:dict];
+        BusStopAnnotation *busStopObjectWithFullDetails = [[BusStopAnnotation alloc] initWithDictionary:dict];
         // Add BusStop object to busStopArray
-        [tempBusStopArray addObject:stopWithFullDetails];
+        [reformattedBusStopsArray addObject:busStopObjectWithFullDetails];
     }
-    [self.delegate requestDidFinishWithArray:tempBusStopArray];
+    [self.delegate requestDidFinishWithArray:reformattedBusStopsArray];
 }
-
 
 
 

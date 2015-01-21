@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F8B0BAB1A6F5CE30041E25C /* DetailBusStopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8B0BAA1A6F5CE30041E25C /* DetailBusStopViewController.m */; };
 		0F93F42A1A6F040500601F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4291A6F040500601F44 /* main.m */; };
 		0F93F42D1A6F040500601F44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F42C1A6F040500601F44 /* AppDelegate.m */; };
 		0F93F4301A6F040500601F44 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F42F1A6F040500601F44 /* RootViewController.m */; };
@@ -15,7 +16,7 @@
 		0F93F4381A6F040500601F44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F93F4361A6F040500601F44 /* LaunchScreen.xib */; };
 		0F93F4441A6F040500601F44 /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4431A6F040500601F44 /* GetOnThatBusTests.m */; };
 		0F93F44E1A6F064700601F44 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F93F44D1A6F064700601F44 /* MapKit.framework */; };
-		0F93F4511A6F072300601F44 /* BusStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4501A6F072300601F44 /* BusStop.m */; };
+		0F93F4511A6F072300601F44 /* BusStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4501A6F072300601F44 /* BusStopAnnotation.m */; };
 		0F93F4561A6F267E00601F44 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4551A6F267E00601F44 /* Parser.m */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F8B0BA91A6F5CE30041E25C /* DetailBusStopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBusStopViewController.h; sourceTree = "<group>"; };
+		0F8B0BAA1A6F5CE30041E25C /* DetailBusStopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBusStopViewController.m; sourceTree = "<group>"; };
 		0F93F4241A6F040500601F44 /* GetOnThatBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetOnThatBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F93F4281A6F040500601F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F93F4291A6F040500601F44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,8 +47,8 @@
 		0F93F4421A6F040500601F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F93F4431A6F040500601F44 /* GetOnThatBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusTests.m; sourceTree = "<group>"; };
 		0F93F44D1A6F064700601F44 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		0F93F44F1A6F072300601F44 /* BusStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStop.h; sourceTree = "<group>"; };
-		0F93F4501A6F072300601F44 /* BusStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStop.m; sourceTree = "<group>"; };
+		0F93F44F1A6F072300601F44 /* BusStopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopAnnotation.h; sourceTree = "<group>"; };
+		0F93F4501A6F072300601F44 /* BusStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopAnnotation.m; sourceTree = "<group>"; };
 		0F93F4541A6F267E00601F44 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		0F93F4551A6F267E00601F44 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,8 +135,8 @@
 		0F93F4521A6F072800601F44 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0F93F44F1A6F072300601F44 /* BusStop.h */,
-				0F93F4501A6F072300601F44 /* BusStop.m */,
+				0F93F44F1A6F072300601F44 /* BusStopAnnotation.h */,
+				0F93F4501A6F072300601F44 /* BusStopAnnotation.m */,
 				0F93F4541A6F267E00601F44 /* Parser.h */,
 				0F93F4551A6F267E00601F44 /* Parser.m */,
 			);
@@ -145,6 +148,8 @@
 			children = (
 				0F93F42E1A6F040500601F44 /* RootViewController.h */,
 				0F93F42F1A6F040500601F44 /* RootViewController.m */,
+				0F8B0BA91A6F5CE30041E25C /* DetailBusStopViewController.h */,
+				0F8B0BAA1A6F5CE30041E25C /* DetailBusStopViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -249,8 +254,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F93F4511A6F072300601F44 /* BusStop.m in Sources */,
+				0F93F4511A6F072300601F44 /* BusStopAnnotation.m in Sources */,
 				0F93F4301A6F040500601F44 /* RootViewController.m in Sources */,
+				0F8B0BAB1A6F5CE30041E25C /* DetailBusStopViewController.m in Sources */,
 				0F93F42D1A6F040500601F44 /* AppDelegate.m in Sources */,
 				0F93F42A1A6F040500601F44 /* main.m in Sources */,
 				0F93F4561A6F267E00601F44 /* Parser.m in Sources */,
@@ -444,6 +450,7 @@
 				0F93F4491A6F040500601F44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F93F44A1A6F040500601F44 /* Build configuration list for PBXNativeTarget "GetOnThatBusTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +459,7 @@
 				0F93F44C1A6F040500601F44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface BusStop : NSObject
+@interface BusStopAnnotation : MKPointAnnotation
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
@@ -20,12 +20,13 @@
 @property NSString *ctaStopName;
 @property NSString *direction;
 @property NSString *name;
-@property NSArray *routes;
-@property NSArray *ward;
+@property NSString *routes;
+@property NSString *inter_modal;
+@property NSString *ward;
 @property NSString *longitude;
 @property NSString *latitude;
 @property NSDictionary *location;
-@property CLLocationCoordinate2D coordinate;
+//@property CLLocationCoordinate2D coordinate;
 
 
 @end

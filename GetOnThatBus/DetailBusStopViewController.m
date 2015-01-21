@@ -23,7 +23,34 @@
 {
     [super viewDidLoad];
 
-    self.stopNameLabel.text = self.selectedAnnotation.stopID;
+    self.stopNameLabel.text = self.selectedAnnotation.ctaStopName;
+    [self reverseGeocodeAddressFromCoordinate:self.selectedAnnotation.coordinate];
+    self.routeLabel.text = [NSString stringWithFormat:@"Route: %@", self.selectedAnnotation.routes];
+    self.transferLabel.text = self.selectedAnnotation.inter_modal; 
 }
+
+
+- (void)reverseGeocodeAddressFromCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude
+                                                      longitude:coordinate.longitude];
+    CLGeocoder *geocoder = [CLGeocoder new];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
+    {
+        if (error)
+        {
+            NSLog(@"Geocode failed with error: %@", error);
+            return;
+        }
+        if (placemarks && placemarks.count > 0)
+        {
+            CLPlacemark *placemark = placemarks[0];
+            NSDictionary *addressDictionary = placemark.addressDictionary;
+            NSString *address = [addressDictionary objectForKey:@"Name"];
+            self.addressLabel.text = address;
+        }
+    }];
+}
+
 
 @end

@@ -26,9 +26,9 @@
 
 
 @implementation RootViewController
+
+//--------------------------------------   View    -------------------------------------------
 #pragma mark - View
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,7 +41,22 @@
     [self requestUserPermissionToTrack];    // Request users permission to track location
 }
 
-#pragma mark - Table View
+- (IBAction)onSegmentPressed:(UISegmentedControl *)sender
+{
+    if ([sender selectedSegmentIndex] == 0)
+    {
+        self.mapView.hidden = NO;
+        self.tableView.hidden = YES;
+    }
+    else if ([sender selectedSegmentIndex] == 1)
+    {
+        self.mapView.hidden = YES;
+        self.tableView.hidden = NO;
+    }
+}
+
+//--------------------------------   Table View Delegates    -------------------------------------
+#pragma mark - Table View Delegates
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -59,7 +74,8 @@
     [self performSegueWithIdentifier:@"DetailSegue" sender:tableView];
 }
 
-#pragma mark - Request
+//-----------------------------------   Parcer Delegate    ----------------------------------------
+#pragma mark - Parcer Delegate
 - (void)requestDidFinishWithArray:(NSMutableArray *)array
 {
 //    self.busStopsArray = array;
@@ -68,6 +84,7 @@
 }
 
 
+//--------------------------------------   Map View    --------------------------------------------
 #pragma mark - Map View
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -89,23 +106,15 @@
     }
     else
     {
-        return pin;
+        return nil;
     }
     return pin;
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    CLLocationCoordinate2D centerCoordinate = view.annotation.coordinate;
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, span);
-    [self.mapView setRegion:region animated:YES];
-    
     [self performSegueWithIdentifier:@"DetailSegue" sender:view];
 }
-
-//- (void)map
-
 
 - (void)loadPinsFromArray:(NSMutableArray *)array
 {
@@ -120,9 +129,16 @@
         // Add annotation to map
         [self.mapView addAnnotation:stop];
     }
+//    BusStopAnnotation *busStop = [self.busStopsArray objectAtIndex:0];
+//    CLLocationCoordinate2D centerCoordinate = busStop.coordinate;
+//    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+//    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, span);
+//    [self.mapView setRegion:region animated:YES];
+
 }
 
 
+//-----------------------------------   Prepare For Segue    ----------------------------------------
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -140,25 +156,13 @@
     }
 }
 
+//-------------------------------------   Permissions    ------------------------------------------
 #pragma mark - Permissions
 - (void)requestUserPermissionToTrack
 {
     self.locationManager = [CLLocationManager new];
     [self.locationManager requestWhenInUseAuthorization];
 //    self.mapView.showsUserLocation = YES;
-}
-- (IBAction)onSegmentPressed:(UISegmentedControl *)sender
-{
-    if ([sender selectedSegmentIndex] == 0)
-    {
-        self.mapView.hidden = NO;
-        self.tableView.hidden = YES;
-    }
-    else if ([sender selectedSegmentIndex] == 1)
-    {
-        self.mapView.hidden = YES;
-        self.tableView.hidden = NO;
-    }
 }
 
 

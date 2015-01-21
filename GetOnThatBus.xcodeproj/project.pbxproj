@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		0F93F42A1A6F040500601F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4291A6F040500601F44 /* main.m */; };
 		0F93F42D1A6F040500601F44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F42C1A6F040500601F44 /* AppDelegate.m */; };
-		0F93F4301A6F040500601F44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F42F1A6F040500601F44 /* ViewController.m */; };
+		0F93F4301A6F040500601F44 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F42F1A6F040500601F44 /* RootViewController.m */; };
 		0F93F4331A6F040500601F44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F93F4311A6F040500601F44 /* Main.storyboard */; };
 		0F93F4351A6F040500601F44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F93F4341A6F040500601F44 /* Images.xcassets */; };
 		0F93F4381A6F040500601F44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F93F4361A6F040500601F44 /* LaunchScreen.xib */; };
 		0F93F4441A6F040500601F44 /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4431A6F040500601F44 /* GetOnThatBusTests.m */; };
+		0F93F44E1A6F064700601F44 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F93F44D1A6F064700601F44 /* MapKit.framework */; };
+		0F93F4511A6F072300601F44 /* BusStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4501A6F072300601F44 /* BusStop.m */; };
+		0F93F4561A6F267E00601F44 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93F4551A6F267E00601F44 /* Parser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,19 @@
 		0F93F4291A6F040500601F44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F93F42B1A6F040500601F44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F93F42C1A6F040500601F44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0F93F42E1A6F040500601F44 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0F93F42F1A6F040500601F44 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0F93F42E1A6F040500601F44 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		0F93F42F1A6F040500601F44 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		0F93F4321A6F040500601F44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F93F4341A6F040500601F44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0F93F4371A6F040500601F44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0F93F43D1A6F040500601F44 /* GetOnThatBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetOnThatBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F93F4421A6F040500601F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F93F4431A6F040500601F44 /* GetOnThatBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusTests.m; sourceTree = "<group>"; };
+		0F93F44D1A6F064700601F44 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0F93F44F1A6F072300601F44 /* BusStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStop.h; sourceTree = "<group>"; };
+		0F93F4501A6F072300601F44 /* BusStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStop.m; sourceTree = "<group>"; };
+		0F93F4541A6F267E00601F44 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		0F93F4551A6F267E00601F44 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F93F44E1A6F064700601F44 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,7 @@
 		0F93F41B1A6F040500601F44 = {
 			isa = PBXGroup;
 			children = (
+				0F93F44D1A6F064700601F44 /* MapKit.framework */,
 				0F93F4261A6F040500601F44 /* GetOnThatBus */,
 				0F93F4401A6F040500601F44 /* GetOnThatBusTests */,
 				0F93F4251A6F040500601F44 /* Products */,
@@ -83,8 +93,8 @@
 			children = (
 				0F93F42B1A6F040500601F44 /* AppDelegate.h */,
 				0F93F42C1A6F040500601F44 /* AppDelegate.m */,
-				0F93F42E1A6F040500601F44 /* ViewController.h */,
-				0F93F42F1A6F040500601F44 /* ViewController.m */,
+				0F93F4531A6F073100601F44 /* Views */,
+				0F93F4521A6F072800601F44 /* Models */,
 				0F93F4311A6F040500601F44 /* Main.storyboard */,
 				0F93F4341A6F040500601F44 /* Images.xcassets */,
 				0F93F4361A6F040500601F44 /* LaunchScreen.xib */,
@@ -117,6 +127,26 @@
 				0F93F4421A6F040500601F44 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0F93F4521A6F072800601F44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F93F44F1A6F072300601F44 /* BusStop.h */,
+				0F93F4501A6F072300601F44 /* BusStop.m */,
+				0F93F4541A6F267E00601F44 /* Parser.h */,
+				0F93F4551A6F267E00601F44 /* Parser.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0F93F4531A6F073100601F44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F93F42E1A6F040500601F44 /* RootViewController.h */,
+				0F93F42F1A6F040500601F44 /* RootViewController.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F93F4301A6F040500601F44 /* ViewController.m in Sources */,
+				0F93F4511A6F072300601F44 /* BusStop.m in Sources */,
+				0F93F4301A6F040500601F44 /* RootViewController.m in Sources */,
 				0F93F42D1A6F040500601F44 /* AppDelegate.m in Sources */,
 				0F93F42A1A6F040500601F44 /* main.m in Sources */,
+				0F93F4561A6F267E00601F44 /* Parser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

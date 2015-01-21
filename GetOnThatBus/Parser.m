@@ -1,15 +1,15 @@
 //
-//  ViewController.h
+//  Parser.m
 //  GetOnThatBus
 //
 //  Created by Chris Giersch on 1/20/15.
 //  Copyright (c) 2015 ChrisGiersch. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Parser.h"
 
-@interface ViewController : UIViewController
+@implementation Parser
+
 
 
 @end
-
